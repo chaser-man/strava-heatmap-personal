@@ -1,0 +1,4 @@
+id,type,name,start_date_local,distance,start_latitude,start_longitude,summary_polyline
+demo1,Run,Morning Run,2024-01-01T09:00:00,5000,40.7128,-74.0060,ki{wFvyobMyCkIoBoF
+demo2,Run,Evening Run,2024-01-01T18:00:00,3000,40.7580,-73.9855,}g|wFp}mbMwCyHkBqF
+demo3,Ride,Weekend Ride,2024-01-02T10:00:00,10000,40.7829,-73.9654,yt|wFbembM{EcLyDkK 

@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Strava Heatmap</title>
+    
+    <!-- Leaflet CSS -->
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css" />
+    
+    <!-- jQuery UI CSS -->
+    <link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+    
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <!-- Auth Container -->
+    <div id="authContainer" style="text-align: center; padding: 20px;">
+        <button id="stravaAuthButton" onclick="authenticateStrava()" style="background: #fc4c02; color: white; border: none; padding: 10px 20px; cursor: pointer; border-radius: 4px;">
+            Connect with Strava
+        </button>
+    </div>
+
+    <div id="map"></div>
+    
+    <!-- Menu Container -->
+    <div id="menuContainer" style="display: none;">
+        <div id="activityMenu"></div>
+        <div id="colorByActivityMenu"></div>
+    </div>
+
+    <!-- Preview Container -->
+    <div id="preview"></div>
+
+    <!-- Print Modal -->
+    <div id="printModal" class="modal">
+        <div class="modal-content">
+            <h2>Export Map</h2>
+            <button id="normalResolutionButton">Normal Resolution</button>
+            <button id="highResolutionButton">High Resolution</button>
+        </div>
+    </div>
+
+    <!-- Scripts -->
+    <!-- jQuery and jQuery UI -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.min.js"></script>
+    
+    <!-- D3.js -->
+    <script src="https://d3js.org/d3.v5.min.js"></script>
+    
+    <!-- Leaflet -->
+    <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"></script>
+    
+    <!-- Custom Scripts -->
+    <script src="js/BigImage.js"></script>
+    <script src="js/ui.js"></script>
+    <script src="js/strava_api.js"></script>
+    <script src="js/script.js"></script>
+</body>
+</html>

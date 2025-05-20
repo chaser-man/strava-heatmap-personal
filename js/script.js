@@ -1,11 +1,33 @@
 function demo() {
-    d3.csv("data/data.csv", function(error, data) {
-        data.forEach(d => {
-            d.map = {summary_polyline:d.summary_polyline};
+    // Load demo data from a sample CSV file
+    fetch('data/sample_activities.csv')
+        .then(response => response.text())
+        .then(csvText => {
+            const data = d3.csvParse(csvText, d => ({
+                ...d,
+                map: { summary_polyline: d.summary_polyline }
+            }));
+            cleanAndSetUp(); // some UI changes
+            drawHeatmap(data);
+        })
+        .catch(error => {
+            console.error('Error loading demo data:', error);
+            // Create minimal demo data if CSV fails to load
+            const demoData = [{
+                id: "demo1",
+                type: "Run",
+                name: "Demo Activity",
+                start_date_local: "2024-01-01T09:00:00",
+                distance: 5000,
+                start_latitude: 40.7128,
+                start_longitude: -74.0060,
+                map: {
+                    summary_polyline: "ki{wFvyobMyCkIoBoF"  // Simple path in NYC
+                }
+            }];
+            cleanAndSetUp();
+            drawHeatmap(demoData);
         });
-        cleanAndSetUp(); // some UI changes
-        drawHeatmap(data);
-    });
     document.getElementById("buttonOnDemo").style.display = 'inline-block';
 };
 
